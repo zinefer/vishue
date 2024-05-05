@@ -50,6 +50,10 @@ export default function Page() {
         // Render current effect's code
         if (canvasRef.current && currentEffect) {
           const ctx = canvasRef.current.getContext("2d");
+          if (!ctx) {
+            return;
+          }
+
           // Loop over every pixel of the canvas
           for (let x = 0; x < canvasRef.current.width; x++) {
             for (let y = 0; y < canvasRef.current.height; y++) {
